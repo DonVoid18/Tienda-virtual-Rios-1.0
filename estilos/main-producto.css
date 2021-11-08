@@ -1,0 +1,85 @@
+:root{
+    --principal-color: #6606bf;
+}
+main{
+    margin: 0 10%;
+}
+.contenedor-producto{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/* css de la imagen */
+.contenedor-imagen{
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}
+.contenedor-imagen img{
+    width: 70%;
+}
+/* css del informacion */
+.contenedor-informacion{
+    width: 400px;
+    padding-top: 5%;
+}
+.producto{
+    margin: 0;
+}
+.titulo{
+    font-size: 2em;
+    padding-bottom: 5%;
+}
+.descripcion{
+    font-size: 1.2em;
+}
+.codigo{
+    font-size: 0.8em;
+}
+.precio{
+    padding: 5% 0;
+    font-size: 2em;
+}
+.contenedor-botones-cantidad{
+    display: flex;
+}
+.contenedor-botones-cantidad button{
+    width: 10%;
+    height: 30%;
+}
+.bottom-carrito{
+    width: 80%;
+    height: 40px;
+    margin-top: 5%;
+    background: var(--principal-color);
+    border: none;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/*  css de la ficha tecnica */
+.contenedor-tabla{
+    padding: 3% 5%;
+}
+.contenedor-tabla p{
+    font-size: 2em;
+}
+.contenedor-tabla table{
+    border-spacing: 0;
+}
+table tr th{
+    background-color: rgba(0, 0, 0, 0.315);
+    width: 300px;
+    height: 30px;
+    text-align: left;
+}
+table tr td{
+    height: 30px;
+}
+tbody tr:hover {
+    background-color: #ddd;
+}
+table tr:nth-child(even){
+    background-color: #f2f2f2;
+}

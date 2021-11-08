@@ -1,0 +1,15 @@
+{
+    "name": "kawschool/tienda-online",
+    "description": "creacion de una tienda online",
+    "type": "project",
+    "license": "MIT",
+    
+    "require": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "TiendaRios\\":"src/"
+        }
+    }
+}

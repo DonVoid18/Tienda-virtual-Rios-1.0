@@ -1,0 +1,91 @@
+// devuelve la tabla con la informacion de las tablas de la base de datos
+SELECT * FROM INFORMATION_SCHEMA.tables WHERE TABLE_SCHEMA='nombre_Base_datos
+// devuelve tabla solo con los nombre de las tablas de la base de datos (con ERRORES)
+SELECT TABLE_NAME AS nombre FROM information_schema.tables WHERE table_schema = 'proyecto_pc'
+// devuelve tabla solo con los nombre de las tablas de la base de datos
+SHOW FULL TABLES FROM proyecto_pc
+// devuelve la cantidad de tavblas en tu base de datos
+SELECT COUNT(*) from Information_Schema.Tables where TABLE_TYPE = 'BASE TABLE' and table_schema = 'proyecto_pc'
+//meuesta la estructura de una tablas
+describe mi_tabla;
+
+
+-+generar tablas
+
+import mysql.connector
+import os
+
+# CONEXCION SQL
+
+conexion1=mysql.connector.connect(host="localhost", 
+                                user="root", 
+                                passwd="", 
+                                database="proyecto_pc")
+
+cursor1=conexion1.cursor()
+
+sql="SHOW FULL TABLES FROM proyecto_pc"
+cursor1.execute(sql)
+data = cursor1.fetchone()
+tablas=[]
+columna=0
+
+print('TABLAS DE LA BASE DE DATOS')
+
+while (data!=None):
+    print(' - '+data[columna])
+    tablas.append(data[columna])
+    data = cursor1.fetchone()
+
+ext=input("\n   Ingrese el la extencion de los archivos : ")
+
+for e in range(len(tablas)):
+    file = open("Tablas/"+tablas[e]+"."+ext,"w")
+    file.write("<?php\n?>")
+    file.close()
+
+
+# PARA UN CONECCION SEGURA :
+
+# import mysql.connector
+# from mysql.connector import errorcode
+
+# try:
+#   cnx = mysql.connector.connect(user='scott',
+#                                 database='employ')
+# except mysql.connector.Error as err:
+#   if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+#     print("Something is wrong with your user name or password")
+#   elif err.errno == errorcode.ER_BAD_DB_ERROR:
+#     print("Database does not exist")
+#   else:
+#     print(err)
+# else:
+#   cnx.close()
+
+-* fin
+
+
+//Codigo para seguimiento de errores
+
+// Desactivar toda las notificaciónes del PHP
+// error_reporting(0);
+
+// Notificar solamente errores de ejecución
+// error_reporting(E_ERROR | E_WARNING | E_PARSE);
+// error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+// // Mostrar todos los errores menos el E_NOTICE
+
+// // Valor predeterminado ya descrito en php.ini
+// error_reporting(E_ALL ^ E_NOTICE);
+
+// //Notificar todos los errores de PHP
+// error_reporting(E_ALL);
+
+// // Notificar todos los errores de PHP
+// error_reporting(-1);
+
+// // Lo mismo que error_reporting(E_ALL);
+
+// ini_set('error_reporting', E_ALL);
